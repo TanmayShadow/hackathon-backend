@@ -35,7 +35,7 @@ public class AiController {
     public ResponseEntity<String> getResearchPaper(@RequestBody AiQueryDTO aiQueryDTO, HttpServletRequest httpServletRequest)
     {
 
-        String res = aiService.getLearningPath(aiQueryDTO, Long.parseLong(jwtUtil.getClaim(httpServletRequest,"user")+""));
+        String res = aiService.getResearchPapers(aiQueryDTO, Long.parseLong(jwtUtil.getClaim(httpServletRequest,"user")+""));
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
 }
