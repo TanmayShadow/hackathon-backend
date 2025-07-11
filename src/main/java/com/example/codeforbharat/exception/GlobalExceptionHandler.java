@@ -15,11 +15,11 @@ public class GlobalExceptionHandler {
 
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<Map<String,String>> handleRuntimeException(RuntimeException ex) {
-        Map<String,String> map = new HashMap<>();
-        map.put("success","false");
-        map.put("message", ex.getMessage());
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(map);
-    }
+//    @ExceptionHandler(RuntimeException.class)
+//    public ResponseEntity<Map<String,String>> handleRuntimeException(RuntimeException ex) {
+//        Map<String,String> map = new HashMap<>();
+//        map.put("success","false");
+//        map.put("message", ex.getMessage());
+//        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(map);
+//    }
 }

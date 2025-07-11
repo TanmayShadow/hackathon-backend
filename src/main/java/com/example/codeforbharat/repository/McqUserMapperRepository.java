@@ -1,4 +1,7 @@
 package com.example.codeforbharat.repository;
 
-public class McquserMapperRepository {
+import com.example.codeforbharat.model.McqUserMapperModel;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface McqUserMapperRepository extends JpaRepository<McqUserMapperModel,Long> {
 }
