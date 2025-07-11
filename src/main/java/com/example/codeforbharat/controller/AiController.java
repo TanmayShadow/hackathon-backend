@@ -1,7 +1,7 @@
 package com.example.codeforbharat.controller;
 
-import com.example.codeforbharat.DTO.LearningPathDTO;
-import com.example.codeforbharat.service.LearningPathService;
+import com.example.codeforbharat.DTO.AiQueryDTO;
+import com.example.codeforbharat.service.AiService;
 import io.github.tanmayshadow.util.JwtUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/ai")
 public class AiController {
     @Autowired
-    LearningPathService learningPath;
+    AiService aiService;
 
     @Autowired
     JwtUtil jwtUtil;
@@ -24,10 +24,18 @@ public class AiController {
 
 
     @PostMapping("/learningPath")
-    public ResponseEntity<String> getLearningPath(@RequestBody LearningPathDTO learningPathDTO, HttpServletRequest httpServletRequest)
+    public ResponseEntity<String> getLearningPath(@RequestBody AiQueryDTO aiQueryDTO, HttpServletRequest httpServletRequest)
     {
 
-        String res = learningPath.getLearningPath(learningPathDTO, Long.parseLong(jwtUtil.getClaim(httpServletRequest,"user")+""));
+        String res = aiService.getLearningPath(aiQueryDTO, Long.parseLong(jwtUtil.getClaim(httpServletRequest,"user")+""));
+        return new ResponseEntity<>(res, HttpStatus.OK);
+    }
+
+    @PostMapping("/researchPaperFinder")
+    public ResponseEntity<String> getResearchPaper(@RequestBody AiQueryDTO aiQueryDTO, HttpServletRequest httpServletRequest)
+    {
+
+        String res = aiService.getResearchPapers(aiQueryDTO, Long.parseLong(jwtUtil.getClaim(httpServletRequest,"user")+""));
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
 }

@@ -1,12 +1,12 @@
 package com.example.codeforbharat.DTO;
 
-public class LearningPathDTO {
+public class AiQueryDTO {
     String query;
 
-    public LearningPathDTO() {
+    public AiQueryDTO() {
     }
 
-    public LearningPathDTO(String query) {
+    public AiQueryDTO(String query) {
         this.query = query;
     }
 
